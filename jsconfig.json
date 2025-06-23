@@ -1,0 +1,14 @@
+// jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".", // Crucial for resolving absolute paths
+    "paths": {
+      "@/*": ["./src/*"] // Defines the "@" alias to point to your "src" folder
+    },
+    "jsx": "react-jsx", // Necessary for React's JSX syntax
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler" // Important for modern JS module resolution
+  },
+  "include": ["src/**/*"] // Ensures all files in src are included for IDE features
+}
