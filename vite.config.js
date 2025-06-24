@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/recipe-book/", // 🔥 must match repo name
+  base: process.env.NODE_ENV === "production" ? "/recipe-book/" : "/", // 👈 dynamic base
   plugins: [react()],
   resolve: {
     alias: {
