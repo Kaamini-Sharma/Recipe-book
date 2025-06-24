@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const AddRecipe = () => {
-  const [recipe, setRecipe] = useState({
+const Addrecipe = () => {
+  const [recipe, setrecipe] = useState({
     title: "",
     image: "",
     contributor: "",
@@ -14,25 +14,25 @@ const AddRecipe = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setRecipe({ ...recipe, [e.target.name]: e.target.value });
+    setrecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const stored = JSON.parse(localStorage.getItem("recipes") || "[]");
-    const newRecipe = { ...recipe, id: Date.now() };
-    localStorage.setItem("recipes", JSON.stringify([...stored, newRecipe]));
+    const newrecipe = { ...recipe, id: Date.now() };
+    localStorage.setItem("recipes", JSON.stringify([...stored, newrecipe]));
     navigate("/");
   };
 
   return (
     <div className="max-w-xl mx-auto mt-8 bg-white p-6 rounded-2xl shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Add New Recipe</h2>
+      <h2 className="text-2xl font-bold mb-4">Add New recipe</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="title"
-          placeholder="Recipe Title"
+          placeholder="recipe Title"
           value={recipe.title}
           onChange={handleChange}
           className="w-full p-2 border rounded"
@@ -45,7 +45,7 @@ const AddRecipe = () => {
             const file = e.target.files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-              setRecipe({ ...recipe, image: reader.result });
+              setrecipe({ ...recipe, image: reader.result });
             };
             if (file) reader.readAsDataURL(file);
           }}
@@ -87,11 +87,11 @@ const AddRecipe = () => {
         />
 
         <Button type="submit" className="bg-orange-500 hover:bg-orange-600">
-          Save Recipe
+          Save recipe
         </Button>
       </form>
     </div>
   );
 };
 
-export default AddRecipe;
+export default Addrecipe;

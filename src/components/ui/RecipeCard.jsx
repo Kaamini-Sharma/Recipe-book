@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/Card";
 
-const RecipeCard = ({ recipe }) => {
+const recipeCard = ({ recipe }) => {
   return (
     <Link to={`/recipe/${recipe.id}`}>
       <Card className="rounded-2xl overflow-hidden shadow-xl transition-transform hover:scale-[1.02] hover:shadow-2xl duration-300 bg-white">
@@ -24,4 +24,4 @@ const RecipeCard = ({ recipe }) => {
   );
 };
 
-export default RecipeCard;
+export default recipeCard;

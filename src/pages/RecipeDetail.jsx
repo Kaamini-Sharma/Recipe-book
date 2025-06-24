@@ -2,16 +2,16 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
-const RecipeDetail = () => {
+const recipeDetail = () => {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState(null);
+  const [recipe, setrecipe] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("recipes")) || [];
     const found = stored.find((r) => r.id === parseInt(id));
     if (!found) return navigate("/");
-    setRecipe(found);
+    setrecipe(found);
   }, [id, navigate]);
 
   const handleDelete = () => {
@@ -52,4 +52,4 @@ const RecipeDetail = () => {
   );
 };
 
-export default RecipeDetail;
+export default recipeDetail;

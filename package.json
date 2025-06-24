@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Kaamini-Sharma.github.io/recipe-book",
+  "homepage": "https://kaamini-sharma.github.io/recipe-book",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -2,20 +2,20 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const EditRecipe = () => {
+const Editrecipe = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [recipe, setRecipe] = useState(null);
+  const [recipe, setrecipe] = useState(null);
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("recipes")) || [];
     const found = stored.find((r) => r.id === parseInt(id));
     if (!found) return navigate("/");
-    setRecipe(found);
+    setrecipe(found);
   }, [id, navigate]);
 
   const handleChange = (e) => {
-    setRecipe({ ...recipe, [e.target.name]: e.target.value });
+    setrecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -30,7 +30,7 @@ const EditRecipe = () => {
 
   return (
     <div className="max-w-xl mx-auto mt-8 bg-white p-6 rounded-2xl shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Edit Recipe</h2>
+      <h2 className="text-2xl font-bold mb-4">Edit recipe</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -47,7 +47,7 @@ const EditRecipe = () => {
             const file = e.target.files[0];
             const reader = new FileReader();
             reader.onloadend = () => {
-              setRecipe({ ...recipe, image: reader.result });
+              setrecipe({ ...recipe, image: reader.result });
             };
             if (file) reader.readAsDataURL(file);
           }}
@@ -85,11 +85,11 @@ const EditRecipe = () => {
           required
         />
         <Button type="submit" className="bg-green-500 hover:bg-green-600">
-          Update Recipe
+          Update recipe
         </Button>
       </form>
     </div>
   );
 };
 
-export default EditRecipe;
+export default Editrecipe;
