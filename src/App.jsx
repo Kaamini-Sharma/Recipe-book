@@ -1,19 +1,29 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home"; // Assuming you have a Home component
-import AddRecipe from "./pages/AddRecipe"; // Assuming you have an AddRecipe component
-import RecipeDetail from "./pages/RecipeDetail"; // Example for a detail page
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import { useAuth } from "@/context/AuthProvider";
+import Home from "@/pages/Home";
+import AddRecipe from "@/pages/AddRecipe";
+import EditRecipe from "@/pages/EditRecipe";
+import RecipeDetail from "@/pages/RecipeDetail";
+// import Login from "@/pages/Login";
+// import { AuthProvider } from "@/context/AuthProvider";
 
 function App() {
   return (
-    <Router basename="/recipe-book">
-      {" "}
-      {/* Add this basename */}
+    <Router>
+      <header className="bg-white shadow-md p-4 flex justify-between items-center">
+        <h1 className="text-xl font-bold">Recipe Book</h1>
+        <nav className="space-x-4">
+          <Link to="/" className="text-blue-500 hover:underline">
+            Home
+          </Link>
+          <Link to="/add" className="text-blue-500 hover:underline">
+            Add Recipe
+          </Link>
+        </nav>
+      </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add-recipe" element={<AddRecipe />} />
-        <Route path="/recipe/:id" element={<RecipeDetail />} />
-        {/* Add any other routes you have */}
-        <Route path="*" element={<Home />} /> {/* Fallback to home */}
+        <Route path="/add" element={<AddRecipe />} />
       </Routes>
     </Router>
   );
