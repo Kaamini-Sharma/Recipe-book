@@ -11,7 +11,9 @@ function App() {
   return (
     <Router>
       <header className="bg-white shadow-md p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">Recipe Book</h1>
+        <Link to="/" className="text-black-900 hover:underline">
+          Recipe-Book
+        </Link>
         <nav className="space-x-4">
           <Link to="/" className="text-blue-500 hover:underline">
             Home
