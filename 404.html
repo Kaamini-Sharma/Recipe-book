@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; URL=/recipe-book/" />
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // Get the current path without the base URL
+      var path = window.location.pathname;
+      var base = "/recipe-book/"; // Make sure this matches your 'base' in vite.config.js and homepage
+      if (path.startsWith(base)) {
+        path = path.substring(base.length);
+      }
+
+      // Redirect to index.html with the original path as a hash
+      window.location.replace(base + "#" + path);
+    </script>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p>
+      If you are not redirected automatically, follow this
+      <a href="/recipe-book/">link to the Recipe Book.</a>
+    </p>
   </body>
 </html>
